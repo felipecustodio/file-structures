@@ -15,7 +15,7 @@
 
 // Registry
 typedef struct data {
-    
+
 	char *name;
 	char *street;
 	int number;
@@ -24,11 +24,11 @@ typedef struct data {
 } DATA;
 
 char* readString() {
-    
+
 	char* string = NULL;
     char stop = '@';
 	int counter = 0;
-    
+
 	while (stop != 10) {
 		scanf("%c", &stop);
 		string = (char*)realloc(string, sizeof(char) * counter + 1);
@@ -49,7 +49,7 @@ void printData(DATA data);
 void get(DATA data, int RRN);
 
 DATA writeData() {
-    
+
 }
 
 DATA readField() {
@@ -80,7 +80,7 @@ DATA* readData() {
     int menu = -1;
     int fields = 0;
     DATA* data = NULL;
-    
+
     printf("Leitura de Dados\n");
     while (menu != 2) {
         printf("Selecione a opção desejada\n");
@@ -89,9 +89,9 @@ DATA* readData() {
         printf(":::\t");
         scanf("%d", &menu);
         getchar();
-        
+
         switch(menu) {
-            case 1: 
+            case 1:
                 // Ler novo registro
                 data = (DATA*)realloc(data, sizeof(DATA*) * fields + 1);
                 data[fields] = readField();
@@ -109,9 +109,9 @@ DATA* readData() {
 
 void printFile() {
 
-    
-    
-    
+
+
+
 }
 
 void get(DATA data, int RRN) {
@@ -125,23 +125,23 @@ int main(int argc, char *argv[]) {
     FILE *fp = NULL;
     DATA* data = NULL;
     char* filename = NULL;
-    
+
     printf("Insert filename ::: \t");
     filename = readString();
-    
+
     fp = fopen("rw", filename);
     data = readData();
-    
+
     // escrever dados no arquivo
-    
-    
+
+
 	while (menu != 0) {
 		printf("Select option:\n");
 		printf("1) Print data\n");
 		printf("2) Recover data via RRN\n");
 		printf("0) Exit\n");
 		printf(":::\t");
-		
+
 		scanf("%d", &menu);
 		switch(menu) {
 			case 1:
@@ -162,5 +162,3 @@ int main(int argc, char *argv[]) {
 	}
 	return 0;
 }
-
-
