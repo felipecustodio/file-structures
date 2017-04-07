@@ -2,11 +2,11 @@
 CC = gcc
 
 # output path and filename
-BINARY = ./build/output
+BINARY = ./ex01
 
 # sources directory
 # choose a file from the examples directory
-SRC = ./src/main.c
+SRC = ./ex01.c
 
 # includes directory
 INCLUDES = ./includes
