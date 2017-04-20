@@ -35,7 +35,15 @@ char* readfString(FILE* fp, char end) {
 /********************************/
 
 CSV* readFile(FILE* input) {
+
         CSV* csv = newCSV();
+
+        // TODO: create companies
+
+        while(!feof(input)) {
+
+        }
+
         return csv;
 }
 
