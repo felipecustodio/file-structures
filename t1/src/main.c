@@ -15,11 +15,14 @@
 
 int main(int argc, char const *argv[]) {
 
-        int menu = -1;
+        // CONTENT
+        CSV* csv = newCSV();
 
         // I/O FILES
         FILE* in = fopen("./companies.csv", "r");
         FILE* out = fopen("./out", "wb");
+
+        // FAIL TEST
         if (!in) {
                 printf("CAN'T OPEN INPUT FILE\n");
                 return EXIT_FAILURE;
@@ -29,6 +32,8 @@ int main(int argc, char const *argv[]) {
                 return EXIT_FAILURE;
         }
 
+        // INTERFACE
+        int menu = -1;
         while (menu != 0) {
                 printf("\n\n:::\tASSIGNMENT 1\t:::\n\n");
                 printf("::: CHOOSE OPTION\n");
@@ -57,6 +62,9 @@ int main(int argc, char const *argv[]) {
                 }
 
         }
+
+        // FREE MEMORY
+        deleteCSV(csv);
 
         // CLOSE I/O FILES
         fclose(in);

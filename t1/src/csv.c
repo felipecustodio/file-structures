@@ -8,10 +8,10 @@
 
 COMPANY* newCompany() {
         COMPANY* company = (COMPANY*)malloc(sizeof(COMPANY));
-        company->CNPJ = 0;
-        company->registerDate = 0;
-        company->cancelDate = 0;
-        company->CNPJaudit = 0;
+        company->CNPJ = NULL;
+        company->registerDate = NULL;
+        company->cancelDate = NULL;
+        company->CNPJaudit = NULL;
         company->socialName = NULL;
         company->fantasyName = NULL;
         company->reason = NULL;
@@ -25,11 +25,11 @@ void printCompany(COMPANY* company) {
         printf("Fantasy Name: %s\n", company->fantasyName);
         printf("Reason for shutdown: %s\n", company->reason);
         printf("Audit company: %s\n", company->companyName);
-        printf("CNPJ: %d\n", company->CNPJ);
+        printf("CNPJ: %s\n", company->CNPJ);
         // TODO: format dates
-        printf("Register date: %d\n", company->registerDate);
-        printf("Cancellation date: %d\n", company->cancelDate);
-        printf("Audit company CNPJ: %d\n", company->CNPJaudit);
+        printf("Register date: %s\n", company->registerDate);
+        printf("Cancellation date: %s\n", company->cancelDate);
+        printf("Audit company CNPJ: %s\n", company->CNPJaudit);
 }
 
 void deleteCompany(COMPANY* company) {
