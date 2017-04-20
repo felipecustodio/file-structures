@@ -35,7 +35,6 @@ typedef struct csv {
 } CSV;
 
 CSV* newCSV(); // allocates memory for new csv
-CSV* readCSV(FILE* file, char delim); // read CSV contents from file
 void printCSV(CSV* csv); // prints csv contents
 void deleteCSV(CSV* csv); // frees csv memory
 

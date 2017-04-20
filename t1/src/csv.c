@@ -52,16 +52,6 @@ CSV* newCSV() {
         return csv;
 }
 
-CSV* readCSV(FILE* file, char delim) {
-        char current;
-        while (current != EOF) {
-                current = fgetc(file);
-                if (current == delim) {
-                        // new data
-                }
-        }
-}
-
 void printCSV(CSV* csv) {
         int i;
         printf("\n\n****\tCSV CONTENTS\t****\n\n");
