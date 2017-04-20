@@ -7,10 +7,10 @@
 
 typedef struct company {
 
-        int CNPJ;
-        int registerDate;
-        int cancelDate;
-        int CNPJaudit;
+        char* CNPJ;
+        char* registerDate;
+        char* cancelDate;
+        char* CNPJaudit;
         char* socialName;
         char* fantasyName;
         char* reason;
