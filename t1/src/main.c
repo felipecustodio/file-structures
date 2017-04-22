@@ -9,10 +9,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <menu.h>
+#include <string.h>
 
 #include "../includes/csv.h"
 #include "../includes/files.h"
+#include "../includes/interface.h"
 
 int main(int argc, char const *argv[]) {
 
@@ -40,17 +41,10 @@ int main(int argc, char const *argv[]) {
         fclose(in);
         in = NULL;
 
-        // TEST
-
         // WRITE CSV CONTENTS TO BINARY OUTPUT FILE
         // writeFile(csv, out);
 
-        // CLOSE OUTPUT FILE, OPEN WHEN NECESSARY
-        //fclose(out);
-        //out = NULL;
-
         // MENU INTERFACE
-
 
         // FREE MEMORY
         deleteCSV(csv);

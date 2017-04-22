@@ -6,7 +6,7 @@ BINARY = ./build/output
 
 # sources directory
 # choose a file from the examples directory
-SRC = ./src/csv.c ./src/files.c ./src/main.c
+SRC = ./src/interface.c ./src/csv.c ./src/files.c ./src/main.c
 
 # includes directory
 INCLUDES = ./includes
