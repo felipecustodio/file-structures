@@ -68,3 +68,5 @@ void deleteCSV(CSV* csv) {
         free(csv);
         csv = NULL;
 }
+
+void searchCSV(CSV* csv, int reg);
