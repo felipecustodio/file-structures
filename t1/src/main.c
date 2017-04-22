@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <menu.h>
 
 #include "../includes/csv.h"
 #include "../includes/files.h"
@@ -32,52 +33,30 @@ int main(int argc, char const *argv[]) {
                 return EXIT_FAILURE;
         }
 
-        printf("READING FILE\n");
-        // READ CSV CONTENTS
-        csv = readFile(in);
-        printf("FINISHED READING FILE\n");
+        // READ CSV CONTENTS TO RAM
+        csv = readCSV(in);
 
-        // TEST PRINT
-        printCSV(csv);
+        // CLOSE INPUT FILE
+        fclose(in);
+        in = NULL;
 
-        // INTERFACE
-        int menu = -1;
-        while (menu != 0) {
-                printf("\n\n:::\tASSIGNMENT 1\t:::\n\n");
-                printf("::: CHOOSE OPTION\n");
-                printf("[1] PRINT DATA FROM FILE\n");
-                printf("[2] SEARCH DATA\n");
-                printf("[3] GET DATA FROM ID\n");
-                printf("[4] GET FIELD FROM REGISTRY\n");
-                printf("::: ");
-                scanf("%d", &menu);
+        // TEST
 
-                switch(menu) {
-                        case 1:
-                                break;
-                        case 2:
-                                break;
-                        case 3:
-                                break;
-                        case 4:
-                                break;
-                        case 0:
-                                printf("\n\nEXITING\n\n");
-                                break;
-                        default:
-                                printf("\n\nINVALID OPTION!\n\n");
-                                break;
-                }
+        // WRITE CSV CONTENTS TO BINARY OUTPUT FILE
+        // writeFile(csv, out);
 
-        }
+        // CLOSE OUTPUT FILE, OPEN WHEN NECESSARY
+        //fclose(out);
+        //out = NULL;
+
+        // MENU INTERFACE
+
 
         // FREE MEMORY
         deleteCSV(csv);
 
         // CLOSE I/O FILES
-        fclose(in);
         fclose(out);
-        in = NULL;
         out = NULL;
 
         return 0;

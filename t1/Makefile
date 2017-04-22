@@ -12,7 +12,7 @@ SRC = ./src/csv.c ./src/files.c ./src/main.c
 INCLUDES = ./includes
 
 # libraries and flags
-LIBS = -lm
+LIBS = -lm -lmenu -lncurses
 FLAGS = -Wall -O0 -g -Wextra -pthread
 
 all: compile run clean
