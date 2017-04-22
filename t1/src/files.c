@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 #include "../includes/csv.h"
 #include "../includes/files.h"
 
@@ -35,12 +37,13 @@ char* readfString(FILE* fp, char end) {
 /************* FILES ************/
 /********************************/
 
-CSV* readFile(FILE* input) {
+CSV* readCSV(FILE* input) {
 
+	char buffer;
 	// CREATE CSV STRUCTURE
         CSV* csv = newCSV();
 
-        while(!feof(input)) {
+        do {
 
 		// CREATE NEW COMPANY
 		csv->companies = (COMPANY**)realloc(csv->companies, sizeof(COMPANY*) * csv->size + 1);
@@ -56,16 +59,38 @@ CSV* readFile(FILE* input) {
 		csv->companies[csv->size]->companyName = readfString(input, DELIM);
 		// LAST VALUE ENDS ON NEWLINE
 		csv->companies[csv->size]->CNPJaudit = readfString(input, '\n');
-
-		printCompany(csv->companies[csv->size]);
-
 		csv->size += 1;
-        }
-	
-	printf("REACHED END OF FILE\n");
+
+		// CHECK FOR END OF FILE
+		buffer = fgetc(input);
+		if (buffer != EOF) {
+			// IF NEXT CHAR ISN'T EOF
+			// GO BACK 1 BYTE
+			fseek(input, -1, SEEK_CUR);
+		}
+
+        } while(!feof(input));
+
         return csv;
 }
 
-void writeFile(CSV* csv, FILE* output) {
+void writeString(FILE* output, char* string) {
+	fwrite(string, strlen(string), 1, output);
+}
 
+void writeFile(CSV* csv, FILE* output) {
+	int i;
+
+	// WRITE NUMBER OF FIELDS
+
+	for (i = 0; i < csv->size; i++) {
+		// CNPJ - Fixed
+	        // socialName - Variable
+	        // fantasyName - Variable
+	        // registerDate - Fixed
+	        // cancelDate - Fixed
+	        // reason - Variable
+	        // companyName - Variable
+	        // CNPJaudit - Fixed
+	}
 }
