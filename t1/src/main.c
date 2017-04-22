@@ -32,6 +32,14 @@ int main(int argc, char const *argv[]) {
                 return EXIT_FAILURE;
         }
 
+        printf("READING FILE\n");
+        // READ CSV CONTENTS
+        csv = readFile(in);
+        printf("FINISHED READING FILE\n");
+
+        // TEST PRINT
+        printCSV(csv);
+
         // INTERFACE
         int menu = -1;
         while (menu != 0) {
