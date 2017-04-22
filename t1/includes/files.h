@@ -8,7 +8,8 @@
 /************* FILES ************/
 /********************************/
 
-CSV* readFile(FILE* input);
+CSV* readCSV(FILE* input);
+void writeString(FILE* output, char* string);
 void writeFile(CSV* csv, FILE* output);
 
 #endif
