@@ -42,7 +42,7 @@ int main(int argc, char const *argv[]) {
         in = NULL;
 
         // WRITE CSV CONTENTS TO BINARY OUTPUT FILE
-        // writeFile(csv, out);
+        writeFile(csv, out);
 
         // MENU INTERFACE
 
