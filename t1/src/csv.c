@@ -1,3 +1,12 @@
+/********************************
+*
+*       SCC0215 - ORGANIZAÇÃO DE ARQUIVOS
+*       TRABALHO 01
+*
+*
+*
+********************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "../includes/csv.h"
@@ -68,5 +77,3 @@ void deleteCSV(CSV* csv) {
         free(csv);
         csv = NULL;
 }
-
-void searchCSV(CSV* csv, int reg);
