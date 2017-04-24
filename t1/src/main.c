@@ -43,6 +43,10 @@ int main(int argc, char const *argv[]) {
 
         // WRITE CSV CONTENTS TO BINARY OUTPUT FILE
         writeFile(csv, out);
+        fclose(out);
+
+        out = fopen("./out", "rb");
+        printFile(out);
 
         // MENU INTERFACE
 

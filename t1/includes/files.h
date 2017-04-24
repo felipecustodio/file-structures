@@ -31,6 +31,7 @@ void writeFile(CSV* csv, FILE* output);
 /********** READING *************/
 /********************************/
 
+void printFile(FILE* output);
 void readFixedField(FILE* output);
 void readVariableField(FILE* output);
 

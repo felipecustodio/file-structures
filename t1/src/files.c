@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include <string.h>
 
 #include "../includes/csv.h"
@@ -33,9 +34,12 @@ char* readfString(FILE* fp, char end) {
 	// READ UNTIL DELIMITER
 	while (value != end) {
 		fscanf(fp, "%c", &value);
-		string = (char*)realloc(string, sizeof(char) * counter + 1);
-		string[counter] = value;
-		counter++;
+		if (value != 10) {
+
+			string = (char*)realloc(string, sizeof(char) * counter + 1);
+			string[counter] = value;
+			counter++;
+		}
 	}
 
 	string[counter-1] = '\0';
@@ -156,6 +160,24 @@ void writeFile(CSV* csv, FILE* output) {
 /********************************/
 /************* READING **********/
 /********************************/
+
+void printFile(FILE* output) {
+	char buffer = '@';
+	int counter = 0;
+	rewind(output);
+	do {
+		buffer = fgetc(output);
+		// reached end of field
+		if (buffer == '|') {
+			printf(" |||| ");
+		} else if (buffer == '\\') {
+			printf("\n\n***\tREGISTER %d\t***\n\n", counter+1);
+		} else if (isalnum(buffer)) {
+			printf("%c", buffer);
+		}
+		counter++;
+	} while(!feof(output));
+}
 
 void readFixedField(FILE* output);
 void readVariableField(FILE* output);

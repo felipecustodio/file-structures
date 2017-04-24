@@ -1,3 +1,0 @@
-gcc -o ./build/output -I./includes ./src/csv.c ./src/files.c ./src/main.c -lm -lmenu -lncurses
-clear && ./build/output
-[H[2J[?1049h[1;24r(B[m[4l[?7h[39;49m[?1h=
